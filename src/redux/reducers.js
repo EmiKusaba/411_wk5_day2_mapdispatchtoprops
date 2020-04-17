@@ -9,8 +9,9 @@ const cars = (state = [], action) => {
             return [...state, action.value];
 
         case "REMOVE_CAR":
+            const newState = [...state];
             state.splice(action.value, 1);
-            return [...state];
+            return newState;
 
         default:
             return state;
