@@ -6,13 +6,14 @@ const user = (state = null) => state
 const cars = (state = [], action) => {
     switch (action.type) {
         case "ADD_CAR":
-          return [...state, action.value];
+            return [...state, action.value];
 
-          case "REMOVE_CAR":
-            return [...state, cars.splice(action.value, 1)];
+        case "REMOVE_CAR":
+            state.splice(action.value, 1);
+            return [...state];
 
         default:
-    return state;
-}
+            return state;
+    }
 };
 export default combineReducers({ user, cars })
